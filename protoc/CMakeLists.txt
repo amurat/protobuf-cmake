@@ -13,7 +13,9 @@ add_definitions(
 add_executable( protoc ${SOURCES} )
 target_link_libraries( protoc libprotoc )
 if( UNIX )
-  target_link_libraries( protoc -lpthread )
+  if (NOT ANDROID)
+    target_link_libraries( protoc -lpthread )
+  endif()
 endif()
 
 install(TARGETS protoc
