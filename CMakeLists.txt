@@ -102,6 +102,7 @@ endif()
 
 message(STATUS "Protobuf sources in ${PROTOBUF_ROOT}")
 add_subdirectory(libprotobuf)
-add_subdirectory(libprotoc)
-add_subdirectory(protoc)
-
+if (NOT IOS)
+   add_subdirectory(libprotoc)
+   add_subdirectory(protoc)
+endif()
