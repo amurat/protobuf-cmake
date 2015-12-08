@@ -8,7 +8,7 @@ include(CheckCxxHashmap)
 
 check_include_files("pthread.h" HAVE_PTHREAD)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if(TRUE)
   include(CheckIncludeFileCXX)
   set(CMAKE_REQUIRED_FLAGS "-std=c++11")
   check_include_file_cxx("unordered_map" HAVE_UNORDERED_MAP)
