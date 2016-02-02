@@ -50,6 +50,10 @@ endif()
 add_library( libprotobuf ${SOURCES} )
 set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 
+if (IOS)
+    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET ${CCOR_IOS_DEPLOYMENT_TARGET})
+endif()
+
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
     # Install a spare copy of the dlls to the bin directory for use by protoc.exe
     install(TARGETS libprotobuf
