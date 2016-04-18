@@ -51,7 +51,7 @@ add_library( libprotobuf ${SOURCES} )
 set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 
 if (IOS)
-    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET ${CCOR_IOS_DEPLOYMENT_TARGET})
+    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
 endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
