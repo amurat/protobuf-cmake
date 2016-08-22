@@ -50,6 +50,10 @@ endif()
 add_library( libprotobuf ${SOURCES} )
 set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 
+if (WIN32)
+	SET(CMAKE_DEBUG_POSTFIX "_d") 
+endif()
+
 if (IOS)
     set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
 endif()
