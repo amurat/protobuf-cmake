@@ -48,10 +48,15 @@ if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
 endif()
 
 add_library( libprotobuf ${SOURCES} )
-set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 
 if (WIN32)
-	SET(CMAKE_DEBUG_POSTFIX "_d") 
+	IF(CMAKE_BUILD_TYPE MATCHES "Debug")
+		set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf_d")
+	else()
+		set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
+	endif()
+else()
+	set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 endif()
 
 if (IOS)
