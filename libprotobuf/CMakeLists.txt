@@ -59,9 +59,9 @@ else()
 	set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
 endif()
 
-if (IOS)
-    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
-endif()
+#if (IOS)
+#    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
+#endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
     # Install a spare copy of the dlls to the bin directory for use by protoc.exe
