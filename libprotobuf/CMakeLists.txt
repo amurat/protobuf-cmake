@@ -49,16 +49,14 @@ endif()
 
 add_library( libprotobuf ${SOURCES} )
 
-if (WIN32)
-	set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME_RELEASE "protobuf")
-	set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME_DEBUG "protobuf_d")
-else()
-	set_target_properties(libprotobuf PROPERTIES OUTPUT_NAME "protobuf")
-endif()
+set_target_properties(libprotobuf PROPERTIES
+    OUTPUT_NAME ${LIB_PREFIX}protobuf
+    DEBUG_POSTFIX "${protobuf_DEBUG_POSTFIX}"
+)
 
-#if (IOS)
-#    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
-#endif()
+if (IOS)
+    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
+endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
     # Install a spare copy of the dlls to the bin directory for use by protoc.exe
