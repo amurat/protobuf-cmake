@@ -55,7 +55,7 @@ set_target_properties(libprotobuf PROPERTIES
 )
 
 if (IOS)
-    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "8.0")
+    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "9.0")
 endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
