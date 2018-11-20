@@ -54,10 +54,6 @@ set_target_properties(libprotobuf PROPERTIES
     DEBUG_POSTFIX "${protobuf_DEBUG_POSTFIX}"
 )
 
-if (IOS)
-    set_xcode_property(libprotobuf IPHONEOS_DEPLOYMENT_TARGET "9.0")
-endif()
-
 if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
     # Install a spare copy of the dlls to the bin directory for use by protoc.exe
     install(TARGETS libprotobuf
